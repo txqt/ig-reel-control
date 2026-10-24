@@ -24,6 +24,7 @@ Chrome extension (Manifest V3) thêm nút Pause/Resume, menu tốc độ phát v
 | File | Mô tả |
 | --- | --- |
 | `manifest.json` | Khai báo extension |
+| `icons/` | Icon extension (16/32/48/128 px) |
 | `content.js` | Logic điều khiển video |
 | `content.css` | Style cho các nút điều khiển |
 
