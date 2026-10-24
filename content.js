@@ -105,6 +105,17 @@
     btnGear.classList.remove('open');
   }
 
+  /* ---------- Hiện overlay khi rê chuột vào video ---------- */
+  let px = -1;
+  let py = -1;
+  let showUntil = 0; // dành cho cảm ứng: chạm là hiện một lúc
+
+  document.addEventListener('pointermove', (e) => { px = e.clientX; py = e.clientY; }, true);
+  document.addEventListener('pointerdown', (e) => {
+    px = e.clientX; py = e.clientY;
+    showUntil = performance.now() + 3000;
+  }, true);
+
   btnPlay.addEventListener('click', () => {
     if (!active) return;
     if (active.paused) active.play().catch(() => {});
@@ -207,6 +218,12 @@
       root.style.top = top + 'px';
       root.style.width = (right - left) + 'px';
       root.style.height = (bottom - top) + 'px';
+
+      const hover = px >= left && px <= right && py >= top && py <= bottom;
+      root.classList.toggle(
+        'show',
+        hover || dragging || menu.classList.contains('open') || now < showUntil
+      );
 
       if (active.paused !== lastPaused) {
         lastPaused = active.paused;
