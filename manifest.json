@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Reel Video Control for Instagram",
-  "version": "1.0.0",
-  "description": "Thêm nút Pause/Resume, chỉnh tốc độ phát và thanh tua video cho Instagram Reels.",
+  "version": "1.2.0",
+  "description": "Pause/Resume, tốc độ phát, loop, chụp ảnh và thanh tua có preview cho Instagram Reels.",
   "permissions": ["storage"],
   "content_scripts": [
     {
