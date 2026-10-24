@@ -1,0 +1,123 @@
+#igrc-root {
+  position: fixed;
+  z-index: 2147483647;
+  pointer-events: none;
+  display: none;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.igrc-btn {
+  position: absolute;
+  top: 12px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: background 0.15s, transform 0.25s;
+}
+.igrc-btn:hover { background: rgba(0, 0, 0, 0.75); }
+.igrc-btn:active { transform: scale(0.92); }
+.igrc-tl { left: 12px; }
+.igrc-tr { right: 12px; }
+.igrc-tr.open svg { transform: rotate(60deg); }
+.igrc-tr svg { transition: transform 0.25s; }
+
+/* Menu tốc độ */
+.igrc-menu {
+  position: absolute;
+  top: 60px;
+  right: 12px;
+  display: none;
+  flex-direction: column;
+  min-width: 104px;
+  padding: 6px;
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.92);
+  pointer-events: auto;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+.igrc-menu.open { display: flex; }
+.igrc-menu-title {
+  padding: 4px 10px 6px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.igrc-item {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.igrc-item:hover { background: rgba(255, 255, 255, 0.14); }
+.igrc-item.sel { background: #ff3040; font-weight: 600; }
+
+/* Thanh tiến trình */
+.igrc-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22px;
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: none;
+}
+.igrc-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: height 0.12s;
+}
+.igrc-bar:hover .igrc-track,
+.igrc-bar.drag .igrc-track { height: 8px; }
+.igrc-fill {
+  height: 100%;
+  width: 0;
+  background: #ff3040;
+}
+.igrc-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff3040;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.12s;
+}
+.igrc-bar:hover .igrc-thumb,
+.igrc-bar.drag .igrc-thumb { transform: translate(-50%, -50%) scale(1); }
+.igrc-tip {
+  position: absolute;
+  bottom: 26px;
+  display: none;
+  transform: translateX(-50%);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.igrc-bar:hover .igrc-tip,
+.igrc-bar.drag .igrc-tip { display: block; }
